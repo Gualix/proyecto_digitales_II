@@ -53,8 +53,6 @@ serial_paraleloRX serialparalelo(/*AUTOINST*/
 				.valid_datademuxl11(valid_datademuxl11)
 
 
-
-
     );
 
 
@@ -73,16 +71,10 @@ serial_paraleloRX serialparalelo(/*AUTOINST*/
 				.datademuxL2_3(out2),
 				.datademuxL2_4(out3),
 
-                
-                
-				
 				.valid_datademuxL20(valid_datademuxL20),
 				.valid_datademuxL21(valid_datademuxL21),
 				.valid_datademuxL22(valid_datademuxL22),
 				.valid_datademuxL23(valid_datademuxL23)
-
-
-
 
     );
 

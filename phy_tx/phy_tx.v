@@ -19,38 +19,27 @@ module phy_tx(
             input valid_0,
             input valid_1,
             input valid_2,
-            input valid_3,            
-			input data_from_Rx,
+            input valid_3,  
 
+			input data_from_Rx,
 			output data_in,
 );
 
 wire [7:0] data_sp;
-wire [15:0] salidaL1;
-wire [7:0] salida1, salida2,salida3,salida4;
+//wire [15:0] salidaFinal;
+wire [7:0] salidaTotal;
+wire [7:0] salidaA, salidaB;
+wire validA, validB, validC;
+
 wire active_sp;
 wire valid_sp;
 wire valid_mux0;
 wire valid_mux1;
 
 
-SerialParalelo_Tx sp(/*AUTOINST*/		//Instanciando serial paralelo
-				    // ENTRADAS
-
-                );
-muxL2 muxB(
-
-);
-
-
 muxL1 muxA( 
 	.clk_2f(clk_2f),
 				
-	.data_L1(salidaL1),
-				
-	.valid_L10(valid_datademuxl10),
-	.valid_L11(valid_datademuxl11),
-
 	.reset(reset),
 				
 	.Entrada0(in0),
@@ -58,16 +47,53 @@ muxL1 muxA(
 	.Entrada2(in2),
 	.Entrada3(in3),
 			
-	.valid_0(validEntrada0),
-	.valid_1(validEntrada1),
-	.valid_2(validEntrada2),
-	.valid_3(validEntrada3)
+	.validEntrada0(valid_0),
+	.validEntrada1(valid_1),
+	.validEntrada2(valid_2),
+	.validEntrada3(valid_3),
+
+	.Salida0(salidaA),
+	.Salida1(salidaB),
+				
+	.validsalida0(validA),
+	.validsalida1(validB)
 
 );
 
-SerialParalelo_Tx paralelo(   
+muxL2 muxB(
+
+	.clk_4f(clk_4f),
+	.reset(reset),
+
+	.Entrada0(salidaA)
+	.Entrada1(salidaB)
+
+	.validEntrada0(validA),
+	.validEntrada1(validB),
+
+	.validsalida(validC),
+
+	.Salida_conductual(salidaTotal)
 
 );
+
+
+//paralelo_serial ps
+
+SerialParalelo_Tx sp(/*AUTOINST*/		//Instanciando serial paralelo
+				    // ENTRADAS
+
+                );
+
+//SerialParalelo_Tx sp(/*AUTOINST*/		//Instanciando serial paralelo
+//				    // ENTRADAS
+//
+//               );
+
+
+//SerialParalelo_Tx paralelo(   
+
+//);
 
 
 endmodule

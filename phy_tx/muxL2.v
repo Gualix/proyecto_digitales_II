@@ -10,6 +10,7 @@ module muxL2(
     input validEntrada0,
     input validEntrada1,
     input clk_4f,
+    
     input reset);
 
     mux2x1 mux1(
