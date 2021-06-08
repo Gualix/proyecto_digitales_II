@@ -1,112 +1,98 @@
 `include "paralelo_serial.v"
-`include "Muxes.v"
-`include "Recirculador.v"
+
+`include "muxL1.v"
+`include "muxL2.v"
+
+`include "SerialParalelo_Tx.v"
 
 
-module phy_tx(
-    input reset_L,
-    input clk_8f,
-    input enable,
-    input valid_data_0,
-    input valid_data_1,
-    input [7:0]data_in_0,
-    input [7:0]data_in_1,
-    output reg tx_out_0_cond,
-    output reg tx_out_1_cond);
+module phy_tx(  input data_in,
+            input clk_32f,
+            input clk_4f,
+            input clk_2f,
+            input reset,
+            output [7:0] out0,
+            output [7:0] out1,
+            output [7:0] out2,
+            output [7:0] out3,
+            output [7:0] data_serial_paraleloRX,
 
-	reg[7:0]	data_reg_0;
-	reg[7:0]    data_reg_1;
-	reg			valid_reg_0;
-	reg         valid_reg_1;
+            output valid_datademuxL20,
+            output valid_datademuxL21,
+            output valid_datademuxL22,
+            output valid_datademuxL23,            
 
-//Wires
-/*AUTOREG*/
-/*AUTOWIRE*/
-// Beginning of automatic wires (for undeclared instantiated-module outputs)
-wire [7:0]		data_mux;			
-wire [7:0]		data_stripe_0;		
-wire [7:0]		data_stripe_1;		
-wire			out;				
-wire			valid_mux;			
-wire			valid_stripe_0;		
-wire			valid_stripe_1;		
+            output out_serial2_conductual        
+);
+
+wire [7:0] data_serial_paraleloRX;
+wire [15:0] salidaL1;
+wire [7:0] salida1, salida2,salida3,salida4;
+wire active_serial_paraleloRX,valid_serial_paraleloRX,valid_datademuxl10,valid_datademuxl11;
 
 
-wire clk_2f;
-wire clk_f;
-wire out_0;
-wire out_1;
+serial_paraleloRX serialparalelo(/*AUTOINST*/
+				    // ENTRADAS
+				    .reset		(reset),
+				    .clk_4f		(clk_4f),
+				    .clk_32f		(clk_32f),
+				    .data_in		(data_in),
+				    
+				    // SALIDAS
+				    .data_serial_paraleloRX		(data_serial_paraleloRX[7:0]),
+				    .active_serial_paraleloRX	(active_serial_paraleloRX),
+				    .valid_serial_paraleloRX	(valid_serial_paraleloRX)
+                );
+    demuxL1 L2(
+        
+                .clk_4f(clk_4f),
+				.clk_2f(clk_2f),
+				.data_serial_paralelo(data_serial_paraleloRX),
+				.valid_serial_paralelo(valid_serial_paraleloRX),
+				.reset(reset),
+				.datademuxl1(salidaL1),
+				.valid_datademuxl10(valid_datademuxl10),
+				.valid_datademuxl11(valid_datademuxl11)
 
-always @(posedge clk_2f) begin
-    if(~reset_L) begin
-        data_reg_0 <= 0;
-        data_reg_1 <= 0;
-        valid_reg_0 <= 0;
-        valid_reg_1 <= 0;
-    end else begin
-        data_reg_0 <= data_in_0;
-        data_reg_1 <= data_in_1;
-        valid_reg_0 <= valid_data_0;
-        valid_reg_1 <= valid_data_1;
-    end
-end
 
-always @(posedge clk_8f) begin
-    if(~reset_L) begin
-        tx_out_0_cond <= 0;
-        tx_out_1_cond <= 0;
-    end else begin
-        tx_out_0_cond <= out_0;
-        tx_out_1_cond <= out_1;
-    end
-end
 
-gen_clk clocks (/*autoinst*/
-		// Outputs
-		.clk_2f			(clk_2f),
-		.clk_f			(clk_f),
-		// Inputs
-		.clk_8f			(clk_8f),
-		.enable			(enable));
-Muxes mux0 (/*autoinst*/
-	  	// Outputs
-	  	.data_mux		(data_mux[7:0]),
-	  	.valid_mux		(valid_mux),
-	  	// Inputs
-	  	.clk_2f			(clk_2f),
-	  	.reset_L		(reset_L),
-	  	.valid_reg_0	(valid_reg_0),
-	  	.data_reg_0		(data_reg_0[7:0]),
-	  	.valid_reg_1	(valid_reg_1),
-	  	.data_reg_1		(data_reg_1[7:0]));
 
-bs byte (/*autoinst*/
-	 // Outputs
-	 .data_stripe_0			(data_stripe_0[7:0]),
-	 .valid_stripe_0		(valid_stripe_0),
-	 .data_stripe_1			(data_stripe_1[7:0]),
-	 .valid_stripe_1		(valid_stripe_1),
-	 // Inputs
-	 .data_mux			(data_mux[7:0]),
-	 .valid_mux			(valid_mux),
-	 .reset_L			(reset_L),
-	 .clk_2f			(clk_2f));
+    );
 
-paralelo_serial line0 (/*autoinst*/
-		   // Outputs
-		   .out			(out_0),
-		   // Inputs
-		   .data_stripe		(data_stripe_0[7:0]),
-		   .valid_stripe	(valid_stripe_0),
-		   .reset_L		(reset_L),
-		   .clk_8f		(clk_8f));
 
-paralelo_serial line1 (/*autoinst*/
-		   // Outputs
-		   .out			(out_1),
-		   // Inputs
-		   .data_stripe		(data_stripe_1[7:0]),
-		   .valid_stripe	(valid_stripe_1),
-		   .reset_L		(reset_L),
-		   .clk_8f		(clk_8f));
+    demuxL2 L1( .clk_2f(clk_2f),
+				.clk_f(clk_f),
+				
+				.data_L1(salidaL1),
+				
+				.valid_L10(valid_datademuxl10),
+				.valid_L11(valid_datademuxl11),
+
+				.reset(reset),
+				
+				.datademuxL2_1(out0),
+      			.datademuxL2_2(out1),
+				.datademuxL2_3(out2),
+				.datademuxL2_4(out3),
+
+                
+                
+				
+				.valid_datademuxL20(valid_datademuxL20),
+				.valid_datademuxL21(valid_datademuxL21),
+				.valid_datademuxL22(valid_datademuxL22),
+				.valid_datademuxL23(valid_datademuxL23)
+
+
+
+
+    );
+
+    PSRX    Paralelo(   .clk_4f(clk_4f),
+                        .clk_32f(clk_32f),
+                        .active(active_serial_paraleloRX),
+                        .out_serial2_conductual(out_serial2_conductual)
+                        );
+
+
 endmodule

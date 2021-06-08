@@ -1,0 +1,81 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Tue Jun  8 16:54:10 2021
+[*]
+[dumpfile] "/home/est/Vídeos/p1/recirculacion/recirculador.vcd"
+[dumpfile_mtime] "Tue Jun  8 16:51:43 2021"
+[dumpfile_size] 39446
+[savefile] "/home/est/Vídeos/p1/recirculacion/recirculacion.gtkw"
+[timestart] 0
+[size] 1855 1056
+[pos] -856 -429
+*-32.427193 26000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 223
+[signals_width] 320
+[sst_expanded] 1
+[sst_vpaned_height] 320
+@28
+banco_recirculador.clk
+[color] 1
+banco_recirculador.reset
+banco_recirculador.active
+@22
+banco_recirculador.data_in0[7:0]
+banco_recirculador.data_in1[7:0]
+banco_recirculador.data_in2[7:0]
+banco_recirculador.data_in3[7:0]
+[color] 5
+banco_recirculador.recirculador_activo0[7:0]
+[color] 5
+banco_recirculador.recirculador_activo1[7:0]
+[color] 5
+banco_recirculador.recirculador_activo2[7:0]
+[color] 5
+banco_recirculador.recirculador_activo3[7:0]
+banco_recirculador.recirculador_activo0s[7:0]
+banco_recirculador.recirculador_activo1s[7:0]
+banco_recirculador.recirculador_activo2s[7:0]
+banco_recirculador.recirculador_activo3s[7:0]
+@23
+[color] 7
+banco_recirculador.recirculador_desactivado0[7:0]
+@22
+banco_recirculador.recirculador_desactivado0s[7:0]
+@23
+[color] 7
+banco_recirculador.recirculador_desactivado1[7:0]
+@22
+banco_recirculador.recirculador_desactivado1s[7:0]
+@23
+[color] 7
+banco_recirculador.recirculador_desactivado2[7:0]
+@22
+banco_recirculador.recirculador_desactivado2s[7:0]
+@23
+[color] 7
+banco_recirculador.recirculador_desactivado3[7:0]
+@22
+banco_recirculador.recirculador_desactivado3s[7:0]
+@28
+[color] 2
+banco_recirculador.valid0
+[color] 2
+banco_recirculador.valid1
+[color] 2
+banco_recirculador.valid2
+[color] 2
+banco_recirculador.valid3
+[color] 3
+banco_recirculador.valid_out_recirculador0
+banco_recirculador.valid_out_recirculador0s
+[color] 3
+banco_recirculador.valid_out_recirculador1
+banco_recirculador.valid_out_recirculador1s
+[color] 3
+banco_recirculador.valid_out_recirculador2
+banco_recirculador.valid_out_recirculador2s
+[color] 3
+banco_recirculador.valid_out_recirculador3
+banco_recirculador.valid_out_recirculador3s
+[pattern_trace] 1
+[pattern_trace] 0

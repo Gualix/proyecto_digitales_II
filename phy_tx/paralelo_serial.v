@@ -1,9 +1,10 @@
-module paralelo_serial(input clk_4f,
-                        input clk_32f,
-                        input [7:0] in_serial,
-                        input valid_in,
-                        input reset,
-                        output reg out_serial_conductual );
+module paralelo_serial(
+    input reset,
+    input clk_4f,
+    input clk_32f,
+    input valid_in,
+    input [7:0] in_serial,
+    output reg out_serial_conductual);
 
     reg [2:0] selector;
     reg [2:0] selector_2;
@@ -22,7 +23,7 @@ module paralelo_serial(input clk_4f,
                     5: out_serial_conductual <= in_serial[2];
                     6: out_serial_conductual <= in_serial[1];
                     7: begin
-                       out_serial_conductual <= in_serial[0];
+                        out_serial_conductual <= in_serial[0];
                         selector_2 <= 0;
                     end
                 endcase
