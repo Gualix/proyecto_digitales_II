@@ -1,4 +1,4 @@
-NOMBRE=phy_tx
+NOMBRE=BancoPruebas_Tx
 BANCO=$(NOMBRE).v
 SYNTH=phy_txSynth.v
 VCD=$(NOMBRE).vcd
@@ -21,7 +21,7 @@ FINAL=phy_txSynth
 
 #all: sintetizar compilar visualizar limpiar
 
-all: compilar
+all: compilar visualizar
 	
 
 compilar:

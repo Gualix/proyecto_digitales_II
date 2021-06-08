@@ -3,7 +3,7 @@
 `include "paralelo_serial.v"
 `include "serialparalelotx.v"
 
-module phy_TX (
+module phy_tx (
     input [7:0] data_in0,   //DATOS DE ENTRADA
 	input [7:0] data_in1,   //BUSES DE 8 BITS X 4
 	input [7:0] data_in2,
@@ -90,7 +90,7 @@ paralelo_serial p2s(
 			.reset			(reset),
 			
 			//SALIDAS
-			.out_serial_conductual (out_serial_conductual)
+			.out_serial_conductual(out_serial_conductual)
 			
 );
 
