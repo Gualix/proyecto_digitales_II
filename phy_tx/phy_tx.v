@@ -15,19 +15,19 @@ module phy_tx (
 	input valid3,       
 
     input reset,    //RESET
-    //input active,
+    input active,
     input out_serial2_conductual, //entrada IDLIN de serial a conductual 
 
     input clk_2f,  //RELOJ 2F
 	input clk_f,    //RELOJ F
 	input clk_4f,   //RELOJ 4F
 
-    output reg out_serial_conductual, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
+    output out_serial_conductual, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
     
-    output reg [7:0] recirculador_desactivado0,  //SALIDA PARA EL PROBADOR
-    output reg [7:0] recirculador_desactivado1,
-    output reg [7:0] recirculador_desactivado2,
-    output reg [7:0] recirculador_desactivado3
+    output [7:0] recirculador_desactivado0,  //SALIDA PARA EL PROBADOR
+    output [7:0] recirculador_desactivado1,
+    output [7:0] recirculador_desactivado2,
+    output [7:0] recirculador_desactivado3
 );
     //BLOQUE1
     wire [7:0] Entrada0;    //salidas del recirculador
@@ -36,7 +36,7 @@ module phy_tx (
     wire [7:0] Entrada3;
 
     wire valid_out_recirculador0;   //salidas de valids
-	wire valid_out_recirculador1;   //del recirculador
+	wire valid_out_recirculador1;   // del recirculador
 	wire valid_out_recirculador2;   //son tambien entradas
 	wire valid_out_recirculador3;   //del mux L1
 
@@ -45,18 +45,52 @@ module phy_tx (
     wire [7:0] Salida_conductual;   //datos salida del L2
     wire validsalida;               //salida valid del L2
                                     //entrada paralelo a serial
-
     
     //SERIAL A PARALELO TX
     //input out_serial2_conductual es la entrada
     wire [7:0] data_serial_paraleloRX;      //salida de 8 bits de SaP
-    wire active;          //
+    //wire active;          //
     wire IDLEOut;
 
+recirculador recirculadorphy(
+    /*AUTOINST*/
+                //ENTRADAS
+                
+                .clk      		(clk_f),
+                .data_in0       (data_in0),
+                .data_in1       (data_in1),
+                .data_in2       (data_in2),
+                .data_in3       (data_in3),
 
+                .valid0         (valid0),
+                .valid1         (valid1),
+                .valid2         (valid2),
+                .valid3         (valid3),
+
+                .reset          (reset),
+                .active         (active),
+
+                //SALIDAS
+
+                .recirculador_activo0   (Entrada0 [7:0]),
+                .recirculador_activo1   (Entrada1 [7:0]),
+                .recirculador_activo2   (Entrada2 [7:0]),
+                .recirculador_activo3   (Entrada3 [7:0]),
+
+                .recirculador_desactivado0  (recirculador_desactivado0 [7:0]),
+                .recirculador_desactivado1  (recirculador_desactivado1 [7:0]),
+                .recirculador_desactivado2  (recirculador_desactivado2 [7:0]),
+                .recirculador_desactivado3  (recirculador_desactivado3 [7:0]),
+
+                .valid_out_recirculador0    (valid_out_recirculador0),
+                .valid_out_recirculador1    (valid_out_recirculador1),
+                .valid_out_recirculador2    (valid_out_recirculador2),
+                .valid_out_recirculador3    (valid_out_recirculador3)
+
+);
 
 Muxes muxess(
-			
+			/*AUTOINST*/
 			//ENTRADAS
 			.validEntrada0	(valid_out_recirculador0),
 			.validEntrada1	(valid_out_recirculador1),
@@ -80,7 +114,7 @@ Muxes muxess(
 
 
 paralelo_serial p2s(
-			
+			/*AUTOINST*/
 			//ENTRADAS
 			
 			.clk_4f			(clk_4f),
@@ -90,7 +124,7 @@ paralelo_serial p2s(
 			.reset			(reset),
 			
 			//SALIDAS
-			.out_serial_conductual(out_serial_conductual)
+			.out_serial_conductual (out_serial_conductual)
 			
 );
 

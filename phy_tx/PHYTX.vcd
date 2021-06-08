@@ -1,0 +1,749 @@
+$date
+	Tue Jun  8 17:38:19 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module BancoPruebas $end
+$var wire 1 ! active $end
+$var wire 1 " validIn_3 $end
+$var wire 1 # validIn_2 $end
+$var wire 1 $ validIn_1 $end
+$var wire 1 % validIn_0 $end
+$var wire 1 & reset $end
+$var wire 8 ' res_In_3 [7:0] $end
+$var wire 8 ( res_In_2 [7:0] $end
+$var wire 8 ) res_In_1 [7:0] $end
+$var wire 8 * res_In_0 [7:0] $end
+$var wire 1 + data_sp $end
+$var wire 1 , data_out $end
+$var wire 1 - clk_f $end
+$var wire 1 . clk_4f $end
+$var wire 1 / clk_2f $end
+$var wire 8 0 In_3 [7:0] $end
+$var wire 8 1 In_2 [7:0] $end
+$var wire 8 2 In_1 [7:0] $end
+$var wire 8 3 In_0 [7:0] $end
+$scope module Probador $end
+$var wire 8 4 recirculador_desactivado3 [7:0] $end
+$var wire 8 5 recirculador_desactivado2 [7:0] $end
+$var wire 8 6 recirculador_desactivado1 [7:0] $end
+$var wire 8 7 recirculador_desactivado0 [7:0] $end
+$var wire 1 , out_serial_conductual $end
+$var reg 1 8 active $end
+$var reg 1 / clk_2f $end
+$var reg 1 . clk_4f $end
+$var reg 1 - clk_f $end
+$var reg 8 9 data_in0 [7:0] $end
+$var reg 8 : data_in1 [7:0] $end
+$var reg 8 ; data_in2 [7:0] $end
+$var reg 8 < data_in3 [7:0] $end
+$var reg 1 + out_serial2_conductual $end
+$var reg 1 & reset $end
+$var reg 1 % valid0 $end
+$var reg 1 $ valid1 $end
+$var reg 1 # valid2 $end
+$var reg 1 " valid3 $end
+$upscope $end
+$scope module transmisior $end
+$var wire 1 ! active $end
+$var wire 1 / clk_2f $end
+$var wire 1 = clk_32f $end
+$var wire 1 . clk_4f $end
+$var wire 1 - clk_f $end
+$var wire 8 > data_in0 [7:0] $end
+$var wire 8 ? data_in1 [7:0] $end
+$var wire 8 @ data_in2 [7:0] $end
+$var wire 8 A data_in3 [7:0] $end
+$var wire 1 + out_serial2_conductual $end
+$var wire 1 & reset $end
+$var wire 1 % valid0 $end
+$var wire 1 $ valid1 $end
+$var wire 1 # valid2 $end
+$var wire 1 " valid3 $end
+$var wire 1 B validsalida $end
+$var wire 1 C valid_out_recirculador3 $end
+$var wire 1 D valid_out_recirculador2 $end
+$var wire 1 E valid_out_recirculador1 $end
+$var wire 1 F valid_out_recirculador0 $end
+$var wire 8 G recirculador_desactivado3 [7:0] $end
+$var wire 8 H recirculador_desactivado2 [7:0] $end
+$var wire 8 I recirculador_desactivado1 [7:0] $end
+$var wire 8 J recirculador_desactivado0 [7:0] $end
+$var wire 1 , out_serial_conductual $end
+$var wire 8 K data_serial_paraleloRX [7:0] $end
+$var wire 8 L Salida_conductual [7:0] $end
+$var wire 1 M IDLEOut $end
+$var wire 8 N Entrada3 [7:0] $end
+$var wire 8 O Entrada2 [7:0] $end
+$var wire 8 P Entrada1 [7:0] $end
+$var wire 8 Q Entrada0 [7:0] $end
+$scope module muxess $end
+$var wire 1 / clk_2f $end
+$var wire 1 . clk_4f $end
+$var wire 1 - clk_f $end
+$var wire 1 & reset $end
+$var wire 1 B validsalida $end
+$var wire 1 R validsalida0 $end
+$var wire 1 S validsalida1 $end
+$var wire 1 C validEntrada3 $end
+$var wire 1 D validEntrada2 $end
+$var wire 1 E validEntrada1 $end
+$var wire 1 F validEntrada0 $end
+$var wire 8 T Salida_conductual [7:0] $end
+$var wire 8 U Salida1 [7:0] $end
+$var wire 8 V Salida0 [7:0] $end
+$var wire 8 W Entrada3 [7:0] $end
+$var wire 8 X Entrada2 [7:0] $end
+$var wire 8 Y Entrada1 [7:0] $end
+$var wire 8 Z Entrada0 [7:0] $end
+$scope module muxitol2 $end
+$var wire 1 . clk_4f $end
+$var wire 1 & reset $end
+$var wire 1 R validEntrada0 $end
+$var wire 1 R validsalida $end
+$var wire 1 S validEntrada1 $end
+$var wire 8 [ Salida_conductual [7:0] $end
+$var wire 8 \ Entrada1 [7:0] $end
+$var wire 8 ] Entrada0 [7:0] $end
+$scope module mux1 $end
+$var wire 1 . clk $end
+$var wire 1 & reset $end
+$var wire 1 R validEntrada0 $end
+$var wire 1 S validEntrada1 $end
+$var wire 8 ^ Entrada1 [7:0] $end
+$var wire 8 _ Entrada0 [7:0] $end
+$var reg 8 ` Salida_conductual [7:0] $end
+$var reg 1 a selector $end
+$var reg 1 b validsalida $end
+$upscope $end
+$upscope $end
+$scope module muxl1 $end
+$var wire 1 / clk_2f $end
+$var wire 1 & reset $end
+$var wire 1 R validsalida0 $end
+$var wire 1 S validsalida1 $end
+$var wire 1 C validEntrada3 $end
+$var wire 1 D validEntrada2 $end
+$var wire 1 E validEntrada1 $end
+$var wire 1 F validEntrada0 $end
+$var wire 8 c Salida1 [7:0] $end
+$var wire 8 d Salida0 [7:0] $end
+$var wire 8 e Entrada3 [7:0] $end
+$var wire 8 f Entrada2 [7:0] $end
+$var wire 8 g Entrada1 [7:0] $end
+$var wire 8 h Entrada0 [7:0] $end
+$scope module mux1 $end
+$var wire 1 / clk $end
+$var wire 1 & reset $end
+$var wire 1 E validEntrada1 $end
+$var wire 1 F validEntrada0 $end
+$var wire 8 i Entrada1 [7:0] $end
+$var wire 8 j Entrada0 [7:0] $end
+$var reg 8 k Salida_conductual [7:0] $end
+$var reg 1 l selector $end
+$var reg 1 m validsalida $end
+$upscope $end
+$scope module mux2 $end
+$var wire 1 / clk $end
+$var wire 1 & reset $end
+$var wire 1 C validEntrada1 $end
+$var wire 1 D validEntrada0 $end
+$var wire 8 n Entrada1 [7:0] $end
+$var wire 8 o Entrada0 [7:0] $end
+$var reg 8 p Salida_conductual [7:0] $end
+$var reg 1 q selector $end
+$var reg 1 S validsalida $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module p2s $end
+$var wire 1 = clk_32f $end
+$var wire 1 . clk_4f $end
+$var wire 8 r in_serial [7:0] $end
+$var wire 1 & reset $end
+$var wire 1 B valid_in $end
+$var reg 1 , out_serial_conductual $end
+$var reg 3 s selector [2:0] $end
+$var reg 3 t selector_2 [2:0] $end
+$upscope $end
+$scope module recirculadorphy $end
+$var wire 1 ! active $end
+$var wire 1 - clk $end
+$var wire 8 u data_in0 [7:0] $end
+$var wire 8 v data_in1 [7:0] $end
+$var wire 8 w data_in2 [7:0] $end
+$var wire 8 x data_in3 [7:0] $end
+$var wire 1 & reset $end
+$var wire 1 % valid0 $end
+$var wire 1 $ valid1 $end
+$var wire 1 # valid2 $end
+$var wire 1 " valid3 $end
+$var reg 8 y recirculador_activo0 [7:0] $end
+$var reg 8 z recirculador_activo1 [7:0] $end
+$var reg 8 { recirculador_activo2 [7:0] $end
+$var reg 8 | recirculador_activo3 [7:0] $end
+$var reg 8 } recirculador_desactivado0 [7:0] $end
+$var reg 8 ~ recirculador_desactivado1 [7:0] $end
+$var reg 8 !" recirculador_desactivado2 [7:0] $end
+$var reg 8 "" recirculador_desactivado3 [7:0] $end
+$var reg 1 F valid_out_recirculador0 $end
+$var reg 1 E valid_out_recirculador1 $end
+$var reg 1 D valid_out_recirculador2 $end
+$var reg 1 C valid_out_recirculador3 $end
+$upscope $end
+$scope module serialaparalelotx $end
+$var wire 1 + IDLin $end
+$var wire 1 = clk_32f $end
+$var wire 1 . clk_4f $end
+$var wire 1 & reset $end
+$var reg 1 M IDLEOut $end
+$var reg 1 #" active_serial_paraleloTX $end
+$var reg 8 $" buffer [7:0] $end
+$var reg 8 %" buffer_pasado [7:0] $end
+$var reg 8 &" data_serial_paraleloTX [7:0] $end
+$var integer 32 '" contador [31:0] $end
+$var integer 32 (" contador_BC [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx ("
+bx '"
+bx &"
+bx %"
+bx $"
+x#"
+b0 ""
+b0 !"
+b0 ~
+b0 }
+b0 |
+b0 {
+b0 z
+b0 y
+b10010 x
+b10101010 w
+b11111101 v
+b0 u
+bx t
+bx s
+b0 r
+0q
+b0 p
+b0 o
+b0 n
+xm
+0l
+b0 k
+b0 j
+b0 i
+b0 h
+b0 g
+b0 f
+b0 e
+b0 d
+b0 c
+xb
+0a
+b0 `
+b0 _
+b0 ^
+b0 ]
+b0 \
+b0 [
+b0 Z
+b0 Y
+b0 X
+b0 W
+b0 V
+b0 U
+b0 T
+xS
+xR
+b0 Q
+b0 P
+b0 O
+b0 N
+xM
+b0 L
+bx K
+b0 J
+b0 I
+b0 H
+b0 G
+0F
+0E
+0D
+0C
+zB
+b10010 A
+b10101010 @
+b11111101 ?
+b0 >
+z=
+b10010 <
+b10101010 ;
+b11111101 :
+b0 9
+18
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+b11111101 2
+b10101010 1
+b10010 0
+1/
+1.
+1-
+x,
+0+
+b0 *
+b0 )
+b0 (
+b0 '
+0&
+1%
+1$
+1#
+1"
+x!
+$end
+#80000000
+0.
+#160000000
+1.
+0/
+#240000000
+0.
+0-
+#320000000
+1.
+1/
+#400000000
+0.
+#480000000
+1.
+0/
+1-
+#560000000
+0.
+#640000000
+1.
+1/
+#720000000
+0.
+0-
+#800000000
+1.
+0/
+#880000000
+0.
+#960000000
+1.
+1/
+1-
+#1040000000
+0.
+#1120000000
+1.
+0/
+#1200000000
+0.
+0-
+#1280000000
+1.
+1/
+#1360000000
+0.
+#1440000000
+b10001 0
+b10001 <
+b10001 A
+b10001 x
+b11110000 2
+b11110000 :
+b11110000 ?
+b11110000 v
+1.
+0/
+1-
+#1520000000
+0.
+#1600000000
+1.
+1/
+#1680000000
+0.
+0-
+#1760000000
+1.
+0/
+#1840000000
+0.
+#1920000000
+1.
+1/
+1-
+#2000000000
+0.
+#2080000000
+1.
+0/
+#2160000000
+0.
+0-
+#2240000000
+1.
+1/
+#2320000000
+0.
+#2400000000
+b10010 0
+b10010 <
+b10010 A
+b10010 x
+b11110010 2
+b11110010 :
+b11110010 ?
+b11110010 v
+1&
+1.
+0/
+1-
+#2480000000
+0.
+#2560000000
+1a
+0R
+0b
+1l
+0m
+1q
+0S
+1.
+1/
+#2640000000
+0.
+0-
+#2720000000
+0a
+1.
+0/
+#2800000000
+0.
+#2880000000
+1a
+0q
+0l
+1C
+1D
+1E
+1F
+1.
+1/
+1-
+#2960000000
+0.
+#3040000000
+0a
+1.
+0/
+#3120000000
+0.
+0-
+#3200000000
+1a
+1l
+xR
+1m
+1q
+1S
+1.
+1/
+#3280000000
+0.
+#3360000000
+1R
+1b
+0a
+b10111010 1
+b10111010 ;
+b10111010 @
+b10111010 w
+b11110010 2
+b11110010 :
+b11110010 ?
+b11110010 v
+1.
+0/
+1-
+#3440000000
+0.
+#3520000000
+1a
+0q
+0l
+1.
+1/
+#3600000000
+0.
+0-
+#3680000000
+0a
+1.
+0/
+#3760000000
+0.
+#3840000000
+1a
+1l
+1q
+1.
+1/
+1-
+#3920000000
+0.
+#4000000000
+0a
+1.
+0/
+#4080000000
+0.
+0-
+#4160000000
+1a
+0q
+0l
+1.
+1/
+#4240000000
+0.
+#4320000000
+0a
+b10100001 1
+b10100001 ;
+b10100001 @
+b10100001 w
+b11110010 2
+b11110010 :
+b11110010 ?
+b11110010 v
+0"
+0#
+0$
+0%
+1.
+0/
+1-
+#4400000000
+0.
+#4480000000
+1a
+1l
+1q
+1.
+1/
+#4560000000
+0.
+0-
+#4640000000
+0a
+1.
+0/
+#4720000000
+0.
+#4800000000
+1a
+0q
+0l
+1.
+1/
+1-
+#4880000000
+0.
+#4960000000
+0a
+1.
+0/
+#5040000000
+0.
+0-
+#5120000000
+1a
+1l
+1q
+1.
+1/
+#5200000000
+0.
+#5280000000
+0a
+b10001 1
+b10001 ;
+b10001 @
+b10001 w
+b11110010 2
+b11110010 :
+b11110010 ?
+b11110010 v
+1.
+0/
+1-
+#5360000000
+0.
+#5440000000
+1a
+0q
+0l
+1.
+1/
+#5520000000
+0.
+0-
+#5600000000
+0a
+1.
+0/
+#5680000000
+0.
+#5760000000
+1a
+1l
+1q
+b10101010 1
+b10101010 ;
+b10101010 @
+b10101010 w
+b11110010 2
+b11110010 :
+b11110010 ?
+b11110010 v
+1"
+1#
+1$
+1%
+1.
+1/
+1-
+#5840000000
+0.
+#5920000000
+0a
+1.
+0/
+#6000000000
+0.
+0-
+#6080000000
+1a
+0q
+0l
+1.
+1/
+#6160000000
+0.
+#6240000000
+0a
+1.
+0/
+1-
+#6320000000
+0.
+#6400000000
+1a
+1l
+1q
+1.
+1/
+#6480000000
+0.
+0-
+#6560000000
+0a
+1.
+0/
+#6640000000
+0.
+#6720000000
+1a
+0q
+0l
+1.
+1/
+1-
+#6800000000
+0.
+#6880000000
+0a
+1.
+0/
+#6960000000
+0.
+0-
+#7040000000
+1a
+1l
+1q
+1.
+1/
+#7120000000
+0.
+#7200000000
+0a
+1.
+0/
+1-
+#7280000000
+0.
+#7360000000
+1a
+0q
+0l
+1.
+1/
+#7440000000
+0.
+0-
+#7520000000
+0a
+1.
+0/
+#7600000000
+0.
+#7680000000
+1a
+1l
+1q
+1.
+1/
+1-
+#7760000000
+0.
+#7840000000
+0a
+1.
+0/
+#7920000000
+0.
+0-
+#8000000000
+1a
+0q
+0l
+1.
+1/
+#8080000000
+0.
+#8160000000
+0a
+1.
+0/
+1-

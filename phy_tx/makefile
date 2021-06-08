@@ -1,7 +1,7 @@
 NOMBRE=BancoPruebas_Tx
 BANCO=$(NOMBRE).v
 SYNTH=phy_txSynth.v
-VCD=$(NOMBRE).vcd
+VCD=PHYTX.vcd
 VC=iverilog
 
 EJEC=ResultadosProbador
