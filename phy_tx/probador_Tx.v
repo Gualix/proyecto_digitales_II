@@ -1,36 +1,33 @@
+//Módulo donde se generan los datos para realizar las pruebas a la conexión del phy_tx
 
 
 module probador_Tx (
-			
+
+	//Elementos que se generan por el probador (Salidas)
+	output reg reset,			
+	output reg clk_32f,			
+	output reg clk_4f,			
+	output reg clk_2f,
+    output [7:0]In0,		//Entradas para el recirculador
+    output [7:0]In1,		//Entradas para el recirculador
+    output [7:0]In2,		//Entradas para el recirculador			
+    output [7:0]In3,		//Entradas para el recirculador
+	output validIn0,
+    output validIn1,
+    output validIn2,
+    output validIn3,
+
+	//Entradas para el probador (Entradas)
+    input in_to_sp, 	
+
 	
 );
 
 	initial begin
 	$dumpfile("ResultadosProbador.vcd");
 	$dumpvars;
-	@(posedge clk_2f);
+//	@(posedge clk_2f);
 
-
-	@(posedge clk_4f);
-	reset <= 0;
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=0;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=0;
-	@(posedge clk_32f)
-	data_in<=0;
-
-
-			
 	$finish;
 	end
 	initial clk_2f <= 0;

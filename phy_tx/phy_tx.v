@@ -21,13 +21,13 @@ module phy_tx(
             input valid_2,
             input valid_3,  
 
+            input valid_from_Rx,  
 			input data_from_Rx,
-			output data_in,
+			output data_to_rx
 );
 
 wire [7:0] data_sp;
-//wire [15:0] salidaFinal;
-wire [7:0] salidaTotal;
+wire [7:0] salidaDeMuxes;
 wire [7:0] salidaA, salidaB;
 wire validA, validB, validC;
 
@@ -65,35 +65,41 @@ muxL2 muxB(
 	.clk_4f(clk_4f),
 	.reset(reset),
 
-	.Entrada0(salidaA)
-	.Entrada1(salidaB)
+	.Entrada0(salidaA),
+	.Entrada1(salidaB),
 
 	.validEntrada0(validA),
 	.validEntrada1(validB),
 
 	.validsalida(validC),
 
-	.Salida_conductual(salidaTotal)
+	.Salida_conductual(salidaDeMuxes)
 
 );
 
 
-//paralelo_serial ps
+paralelo_serial ps(
+
+	.clk_4f(clk_4f),
+	.clk_32f(clk_32f),
+	.reset(reset),
+
+	.valid_in(validC),
+	.in_serial(salidaDeMuxes),
+	.out_serial_conductual(data_to_rx)
+
+);
 
 SerialParalelo_Tx sp(/*AUTOINST*/		//Instanciando serial paralelo
 				    // ENTRADAS
+	.clk_4f(clk_4f),
+	.clk_32f(clk_32f),
 
-                );
-
-//SerialParalelo_Tx sp(/*AUTOINST*/		//Instanciando serial paralelo
-//				    // ENTRADAS
-//
-//               );
+//	.active(),
+	.out_serial2_conductual(data_from_Rx)
+);
 
 
-//SerialParalelo_Tx paralelo(   
-
-//);
 
 
 endmodule
