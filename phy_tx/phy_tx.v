@@ -1,105 +1,111 @@
-`include "muxL1.v"
-`include "muxL2.v"
-
+`include "recirculador.v"
+`include "Muxes.v"
 `include "paralelo_serial.v"
-`include "SerialParalelo_Tx.v"
+`include "serialparalelotx.v"
 
+module phy_TX (
+    input [7:0] data_in0,   //DATOS DE ENTRADA
+	input [7:0] data_in1,   //BUSES DE 8 BITS X 4
+	input [7:0] data_in2,
+	input [7:0] data_in3,
 
-module phy_tx(  
-            input clk_32f,
-            input clk_4f,
-            input clk_2f,
-            input reset,
+    input valid0,   //VALIDS DE ENTRADA X4
+	input valid1,
+	input valid2,
+	input valid3,       
 
-            input [7:0] in0,
-            input [7:0] in1,
-            input [7:0] in2,
-            input [7:0] in3,
+    input reset,    //RESET
+    //input active,
+    input out_serial2_conductual, //entrada IDLIN de serial a conductual 
 
-            input valid_0,
-            input valid_1,
-            input valid_2,
-            input valid_3,  
+    input clk_2f,  //RELOJ 2F
+	input clk_f,    //RELOJ F
+	input clk_4f,   //RELOJ 4F
 
-            input valid_from_Rx,  
-			input data_from_Rx,
-			output data_to_rx
+    output reg out_serial_conductual, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
+    
+    output reg [7:0] recirculador_desactivado0,  //SALIDA PARA EL PROBADOR
+    output reg [7:0] recirculador_desactivado1,
+    output reg [7:0] recirculador_desactivado2,
+    output reg [7:0] recirculador_desactivado3
 );
+    //BLOQUE1
+    wire [7:0] Entrada0;    //salidas del recirculador
+    wire [7:0] Entrada1;    //datos
+    wire [7:0] Entrada2;    //entrada del muxL1
+    wire [7:0] Entrada3;
 
-wire [7:0] data_sp;
-wire [7:0] salidaDeMuxes;
-wire [7:0] salidaA, salidaB;
-wire validA, validB, validC;
+    wire valid_out_recirculador0;   //salidas de valids
+	wire valid_out_recirculador1;   //del recirculador
+	wire valid_out_recirculador2;   //son tambien entradas
+	wire valid_out_recirculador3;   //del mux L1
 
-wire active_sp;
-wire valid_sp;
-wire valid_mux0;
-wire valid_mux1;
+    
+    //BLOQUE3
+    wire [7:0] Salida_conductual;   //datos salida del L2
+    wire validsalida;               //salida valid del L2
+                                    //entrada paralelo a serial
+
+    
+    //SERIAL A PARALELO TX
+    //input out_serial2_conductual es la entrada
+    wire [7:0] data_serial_paraleloRX;      //salida de 8 bits de SaP
+    wire active;          //
+    wire IDLEOut;
 
 
-muxL1 muxA( 
-	.clk_2f(clk_2f),
-				
-	.reset(reset),
-				
-	.Entrada0(in0),
-    .Entrada1(in1),
-	.Entrada2(in2),
-	.Entrada3(in3),
+
+Muxes muxess(
 			
-	.validEntrada0(valid_0),
-	.validEntrada1(valid_1),
-	.validEntrada2(valid_2),
-	.validEntrada3(valid_3),
-
-	.Salida0(salidaA),
-	.Salida1(salidaB),
-				
-	.validsalida0(validA),
-	.validsalida1(validB)
-
-);
-
-muxL2 muxB(
-
-	.clk_4f(clk_4f),
-	.reset(reset),
-
-	.Entrada0(salidaA),
-	.Entrada1(salidaB),
-
-	.validEntrada0(validA),
-	.validEntrada1(validB),
-
-	.validsalida(validC),
-
-	.Salida_conductual(salidaDeMuxes)
-
+			//ENTRADAS
+			.validEntrada0	(valid_out_recirculador0),
+			.validEntrada1	(valid_out_recirculador1),
+			.validEntrada2	(valid_out_recirculador2),
+			.validEntrada3	(valid_out_recirculador3),
+			
+			.clk_4f			(clk_4f),
+			.clk_2f			(clk_2f),
+			.clk_f			(clk_f),
+			.reset  		(reset),
+			
+			.Entrada0		(Entrada0),
+			.Entrada1		(Entrada1),
+			.Entrada2		(Entrada2),
+			.Entrada3		(Entrada3),
+			
+			//SALIDAS
+			.Salida_conductual	(Salida_conductual [7:0]),
+			.validsalida		(validsalida)
 );
 
 
-paralelo_serial ps(
-
-	.clk_4f(clk_4f),
-	.clk_32f(clk_32f),
-	.reset(reset),
-
-	.valid_in(validC),
-	.in_serial(salidaDeMuxes),
-	.out_serial_conductual(data_to_rx)
-
-);
-
-SerialParalelo_Tx sp(/*AUTOINST*/		//Instanciando serial paralelo
-				    // ENTRADAS
-	.clk_4f(clk_4f),
-	.clk_32f(clk_32f),
-
-//	.active(),
-	.out_serial2_conductual(data_from_Rx)
+paralelo_serial p2s(
+			
+			//ENTRADAS
+			
+			.clk_4f			(clk_4f),
+			.clk_32f		(clk_32f),
+			.in_serial		(Salida_conductual [7:0]),
+			.valid_in		(validsalida),
+			.reset			(reset),
+			
+			//SALIDAS
+			.out_serial_conductual (out_serial_conductual)
+			
 );
 
 
+serialparalelotx serialaparalelotx(
+    /*AUTOINST*/
+                //ENTRADAS
+                .reset     (reset),
+                .clk_32f    (clk_32f),
+                .clk_4f    (clk_4f),
+                .IDLin      (out_serial2_conductual),
 
-
+                //SALIDAS
+                .data_serial_paraleloTX (data_serial_paraleloRX [7:0]),
+                .active_serial_paraleloTX   (active),
+                .IDLEOut    (IDLEOut)
+);
 endmodule

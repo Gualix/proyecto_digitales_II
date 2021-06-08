@@ -20,7 +20,10 @@ module BancoPruebas;
         
         phy_tx transmisior(
  
+ 
             );
+
+
         probador_Tx Probador(
             
 
