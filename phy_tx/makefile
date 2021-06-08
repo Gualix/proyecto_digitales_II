@@ -24,7 +24,7 @@ all: sintetizar compilar visualizar limpiar
 
 sintetizar:
 	sed -i '1i\`include "gen_clk.v"\' phy_tx.v
-	sed -i '1i\`include "mux.v"\' phy_tx.v
+	sed -i '1i\`include "Muxes.v"\' phy_tx.v
 	sed -i '1i\`include "partoserial.v"\' phy_tx.v
 	sed -i '1i\`include "bs.v"\' phy_tx.v
 	$(YOSYS) $(YOSFILE)

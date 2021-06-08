@@ -14,23 +14,24 @@ module phy_tx(
     output reg tx_out_0_cond,
     output reg tx_out_1_cond);
 
-reg[7:0]        data_reg_0;
-reg[7:0]        data_reg_1;
-reg             valid_reg_0;
-reg             valid_reg_1;
+	reg[7:0]	data_reg_0;
+	reg[7:0]    data_reg_1;
+	reg			valid_reg_0;
+	reg         valid_reg_1;
 
 //Wires
 /*AUTOREG*/
 /*AUTOWIRE*/
 // Beginning of automatic wires (for undeclared instantiated-module outputs)
-wire [7:0]		data_mux;			// From mux0 of mux.v
-wire [7:0]		data_stripe_0;		// From byte of bs.v
-wire [7:0]		data_stripe_1;		// From byte of bs.v
-wire			out;				// From line0 of paralelo_serial.v, ...
-wire			valid_mux;			// From mux0 of mux.v
-wire			valid_stripe_0;		// From byte of bs.v
-wire			valid_stripe_1;		// From byte of bs.v
-// End of automatics
+wire [7:0]		data_mux;			
+wire [7:0]		data_stripe_0;		
+wire [7:0]		data_stripe_1;		
+wire			out;				
+wire			valid_mux;			
+wire			valid_stripe_0;		
+wire			valid_stripe_1;		
+
+
 wire clk_2f;
 wire clk_f;
 wire out_0;
