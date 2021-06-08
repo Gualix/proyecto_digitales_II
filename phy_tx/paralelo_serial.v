@@ -1,3 +1,4 @@
+
 module paralelo_serial(
     input reset,
     input clk_4f,

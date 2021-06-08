@@ -5,6 +5,7 @@
 module muxL1(
     output [7:0]Salida0,
     output [7:0]Salida1,
+    
     output validsalida1,
     output validsalida0,
 

@@ -1,98 +1,73 @@
-`include "paralelo_serial.v"
-
 `include "muxL1.v"
 `include "muxL2.v"
 
+`include "paralelo_serial.v"
 `include "SerialParalelo_Tx.v"
 
 
-module phy_tx(  input data_in,
+module phy_tx(  
             input clk_32f,
             input clk_4f,
             input clk_2f,
             input reset,
-            output [7:0] out0,
-            output [7:0] out1,
-            output [7:0] out2,
-            output [7:0] out3,
-            output [7:0] data_serial_paraleloRX,
 
-            output valid_datademuxL20,
-            output valid_datademuxL21,
-            output valid_datademuxL22,
-            output valid_datademuxL23,            
+            input [7:0] in0,
+            input [7:0] in1,
+            input [7:0] in2,
+            input [7:0] in3,
 
-            output out_serial2_conductual        
+            input valid_0,
+            input valid_1,
+            input valid_2,
+            input valid_3,            
+			input data_from_Rx,
+
+			output data_in,
 );
 
-wire [7:0] data_serial_paraleloRX;
+wire [7:0] data_sp;
 wire [15:0] salidaL1;
 wire [7:0] salida1, salida2,salida3,salida4;
-wire active_serial_paraleloRX,valid_serial_paraleloRX,valid_datademuxl10,valid_datademuxl11;
+wire active_sp;
+wire valid_sp;
+wire valid_mux0;
+wire valid_mux1;
 
 
-serial_paraleloRX serialparalelo(/*AUTOINST*/
+SerialParalelo_Tx sp(/*AUTOINST*/		//Instanciando serial paralelo
 				    // ENTRADAS
-				    .reset		(reset),
-				    .clk_4f		(clk_4f),
-				    .clk_32f		(clk_32f),
-				    .data_in		(data_in),
-				    
-				    // SALIDAS
-				    .data_serial_paraleloRX		(data_serial_paraleloRX[7:0]),
-				    .active_serial_paraleloRX	(active_serial_paraleloRX),
-				    .valid_serial_paraleloRX	(valid_serial_paraleloRX)
+
                 );
-    demuxL1 L2(
-        
-                .clk_4f(clk_4f),
-				.clk_2f(clk_2f),
-				.data_serial_paralelo(data_serial_paraleloRX),
-				.valid_serial_paralelo(valid_serial_paraleloRX),
-				.reset(reset),
-				.datademuxl1(salidaL1),
-				.valid_datademuxl10(valid_datademuxl10),
-				.valid_datademuxl11(valid_datademuxl11)
+muxL2 muxB(
+
+);
 
 
-
-
-    );
-
-
-    demuxL2 L1( .clk_2f(clk_2f),
-				.clk_f(clk_f),
+muxL1 muxA( 
+	.clk_2f(clk_2f),
 				
-				.data_L1(salidaL1),
+	.data_L1(salidaL1),
 				
-				.valid_L10(valid_datademuxl10),
-				.valid_L11(valid_datademuxl11),
+	.valid_L10(valid_datademuxl10),
+	.valid_L11(valid_datademuxl11),
 
-				.reset(reset),
+	.reset(reset),
 				
-				.datademuxL2_1(out0),
-      			.datademuxL2_2(out1),
-				.datademuxL2_3(out2),
-				.datademuxL2_4(out3),
+	.Entrada0(in0),
+    .Entrada1(in1),
+	.Entrada2(in2),
+	.Entrada3(in3),
+			
+	.valid_0(validEntrada0),
+	.valid_1(validEntrada1),
+	.valid_2(validEntrada2),
+	.valid_3(validEntrada3)
 
-                
-                
-				
-				.valid_datademuxL20(valid_datademuxL20),
-				.valid_datademuxL21(valid_datademuxL21),
-				.valid_datademuxL22(valid_datademuxL22),
-				.valid_datademuxL23(valid_datademuxL23)
+);
 
+SerialParalelo_Tx paralelo(   
 
-
-
-    );
-
-    PSRX    Paralelo(   .clk_4f(clk_4f),
-                        .clk_32f(clk_32f),
-                        .active(active_serial_paraleloRX),
-                        .out_serial2_conductual(out_serial2_conductual)
-                        );
+);
 
 
 endmodule
