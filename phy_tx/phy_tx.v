@@ -1,5 +1,19 @@
+ /* ***********************************************************
+                    Universidad de Costa Rica
+                 Escuela de Ingenieria Electrica
+                            IE-0323
+                      Circuitos Digitales 1
+
+                        phy_tx.v
+
+Descripcion:
+  Conexión de los módulos: recirculador, muxes L1 y L2, paralelo a serial y serial a paralelo
+
+*********************************************************** */
+
+
 `include "recirculador.v"
-`include "Muxes.v"
+`include "muxes/Muxes.v"
 `include "paralelo_serial.v"
 `include "serialparalelotx.v"
 
@@ -15,15 +29,17 @@ module phy_tx (
 	input valid3,       
 
     input reset,    //RESET
-    input active,
-    input out_serial2_conductual, //entrada IDLIN de serial a conductual 
+    //input active,
+    //input out_serial2_conductual, //entrada IDLIN de serial a conductual 
+    input in_from_rx,             //entrada IDLIN de serial a conductual 
 
     input clk_2f,  //RELOJ 2F
     input clk_32f,  //RELOJ 2F
 	input clk_f,    //RELOJ F
 	input clk_4f,   //RELOJ 4F
 
-    output out_serial_conductual, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
+    //output out_serial_conductual, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
+    output out_to_rx, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
     
     output [7:0] recirculador_desactivado0,  //SALIDA PARA EL PROBADOR
     output [7:0] recirculador_desactivado1,
@@ -50,7 +66,7 @@ module phy_tx (
     //SERIAL A PARALELO TX
     //input out_serial2_conductual es la entrada
     wire [7:0] data_serial_paraleloRX;      //salida de 8 bits de SaP
-    //wire active;          //
+    wire active;          //
     wire IDLEOut;
 
 recirculador recirculadorphy(
@@ -130,7 +146,7 @@ paralelo_serial p2s(
 );
 
 
-serialparalelotx serialaparalelotx(
+serial_paralelo s2p(
     /*AUTOINST*/
     //ENTRADAS
     .reset		(reset),
@@ -139,8 +155,8 @@ serialparalelotx serialaparalelotx(
     .IDLin      (out_serial2_conductual),
 
     //SALIDAS
-    .data_serial_paraleloTX (data_serial_paraleloRX [7:0]),
+    .data_serial_paraleloTX     (data_serial_paraleloRX [7:0]),
     .active_serial_paraleloTX   (active),
-    .IDLEOut    (IDLEOut)
+    .IDLEOut                    (IDLEOut)
 );
 endmodule

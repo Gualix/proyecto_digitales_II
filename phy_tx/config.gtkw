@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun  9 23:31:55 2021
+[*]
+[dumpfile] "/home/gualix/git/proyecto_digitales_II/phy_tx/PHY_TX.vcd"
+[dumpfile_mtime] "Wed Jun  9 23:27:57 2021"
+[dumpfile_size] 24623
+[savefile] "/home/gualix/git/proyecto_digitales_II/phy_tx/config.gtkw"
+[timestart] 0
+[size] 1920 1043
+[pos] -1 -1
+*-36.624920 332200000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[sst_width] 233
+[signals_width] 183
+[sst_expanded] 1
+[sst_vpaned_height] 410
+@28
+BancoPruebas.clk_f
+BancoPruebas.clk_2f
+BancoPruebas.clk_4f
+BancoPruebas.clk_32f
+@22
+BancoPruebas.In_0[7:0]
+BancoPruebas.In_1[7:0]
+BancoPruebas.In_2[7:0]
+BancoPruebas.In_3[7:0]
+@28
+BancoPruebas.validIn_0
+BancoPruebas.validIn_1
+BancoPruebas.validIn_2
+BancoPruebas.validIn_3
+BancoPruebas.reset
+BancoPruebas.data_sp
+BancoPruebas.data_out
+[pattern_trace] 1
+[pattern_trace] 0

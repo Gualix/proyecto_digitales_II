@@ -1,10 +1,10 @@
 NOMBRE=BancoPruebas_Tx
 BANCO=$(NOMBRE).v
 SYNTH=phy_txSynth.v
-VCD=PHYTX.vcd
+VCD=PHY_TX.vcd
 VC=iverilog
 
-EJEC=ResultadosProbador
+EJEC=out_Test
 VR=vvp
 FLAGSVC= -o $(EJEC)
 

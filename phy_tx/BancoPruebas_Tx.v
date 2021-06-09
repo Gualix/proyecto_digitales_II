@@ -1,5 +1,15 @@
-// Banco de pruebas, donde se conectan los datos generados por el probador y el phy_tx
+ /* ***********************************************************
+                    Universidad de Costa Rica
+                 Escuela de Ingenieria Electrica
+                            IE-0323
+                      Circuitos Digitales 1
 
+                        BancoPruebas_Tx.v
+
+Descripcion:
+  Banco de pruebas, donde se conectan los datos generados por el probador y el phy_tx
+
+*********************************************************** */
 
 `timescale 1ms/100ps
 `include "phy_tx.v"
@@ -14,7 +24,6 @@ module BancoPruebas;
 
 		wire data_out;                                      //Salida al receptor
         wire data_sp;                                       //Entrada al serial paralelo
-        wire active;                                       //Entrada al serial paralelo
         wire [7:0] In_0, In_1, In_2, In_3;                  //Entradas para el modulo transmisor
         wire [7:0] res_In_0, res_In_1, res_In_2, res_In_3;                  //Entradas para el modulo transmisor
         wire validIn_0, validIn_1, validIn_2, validIn_3;    //Validadores de entrada
@@ -22,7 +31,6 @@ module BancoPruebas;
         phy_tx transmisior(
  
             .reset(reset),
-            .active(active),
             .clk_f(clk_f),
             .clk_2f(clk_2f),
             .clk_4f(clk_4f),
@@ -38,8 +46,8 @@ module BancoPruebas;
             .valid2(validIn_2),
             .valid3(validIn_3),
 
-            .out_serial_conductual(data_out),
-            .out_serial2_conductual(data_sp),
+            .out_to_rx(data_out),
+            .in_from_rx(data_sp),
 
             .recirculador_desactivado0(res_In_0),
             .recirculador_desactivado1(res_In_1),
@@ -55,7 +63,6 @@ module BancoPruebas;
             .clk_f(clk_f),
             .clk_2f(clk_2f),
             .clk_4f(clk_4f),
-            .active(active),
             .clk_32f(clk_32f),
 
             .data_in0(In_0),
@@ -73,8 +80,8 @@ module BancoPruebas;
             .recirculador_desactivado2(res_In_2),
             .recirculador_desactivado3(res_In_3),
 
-            .out_serial2_conductual(data_sp),
-            .out_serial_conductual(data_out)
+            .in_from_rx(data_sp),
+            .out_to_rx(data_out)
 
         );
 

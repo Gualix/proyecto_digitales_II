@@ -1,4 +1,17 @@
-module serialparalelotx(
+ /* ***********************************************************
+                    Universidad de Costa Rica
+                 Escuela de Ingenieria Electrica
+                            IE-0323
+                      Circuitos Digitales 1
+
+                        serial_paralelo.v
+
+Descripcion:
+  
+
+*********************************************************** */
+
+module serial_paralelo(
 	//ENTRADAS
 			
 			input IDLin,			//entrada de datos
