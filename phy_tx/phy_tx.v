@@ -19,6 +19,7 @@ module phy_tx (
     input out_serial2_conductual, //entrada IDLIN de serial a conductual 
 
     input clk_2f,  //RELOJ 2F
+    input clk_32f,  //RELOJ 2F
 	input clk_f,    //RELOJ F
 	input clk_4f,   //RELOJ 4F
 
@@ -131,15 +132,15 @@ paralelo_serial p2s(
 
 serialparalelotx serialaparalelotx(
     /*AUTOINST*/
-                //ENTRADAS
-                .reset     (reset),
-                .clk_32f    (clk_32f),
-                .clk_4f    (clk_4f),
-                .IDLin      (out_serial2_conductual),
+    //ENTRADAS
+    .reset		(reset),
+    .clk_32f	(clk_32f),
+    .clk_4f    	(clk_4f),
+    .IDLin      (out_serial2_conductual),
 
-                //SALIDAS
-                .data_serial_paraleloTX (data_serial_paraleloRX [7:0]),
-                .active_serial_paraleloTX   (active),
-                .IDLEOut    (IDLEOut)
+    //SALIDAS
+    .data_serial_paraleloTX (data_serial_paraleloRX [7:0]),
+    .active_serial_paraleloTX   (active),
+    .IDLEOut    (IDLEOut)
 );
 endmodule

@@ -18,7 +18,6 @@ module BancoPruebas;
         wire [7:0] In_0, In_1, In_2, In_3;                  //Entradas para el modulo transmisor
         wire [7:0] res_In_0, res_In_1, res_In_2, res_In_3;                  //Entradas para el modulo transmisor
         wire validIn_0, validIn_1, validIn_2, validIn_3;    //Validadores de entrada
-        
 
         phy_tx transmisior(
  
@@ -27,7 +26,7 @@ module BancoPruebas;
             .clk_f(clk_f),
             .clk_2f(clk_2f),
             .clk_4f(clk_4f),
-            //.clk_32f(clk_32f),
+            .clk_32f(clk_32f),
 
             .data_in0(In_0),
             .data_in1(In_1),
@@ -57,7 +56,7 @@ module BancoPruebas;
             .clk_2f(clk_2f),
             .clk_4f(clk_4f),
             .active(active),
-            //.clk_32f(clk_32f),
+            .clk_32f(clk_32f),
 
             .data_in0(In_0),
             .data_in1(In_1),
@@ -78,5 +77,7 @@ module BancoPruebas;
             .out_serial_conductual(data_out)
 
         );
+
+
 
 endmodule

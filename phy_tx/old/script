@@ -1,5 +1,0 @@
-read_verilog phy_tx.v 
-hierarchy -check -top paralelo_serial
-proc; opt; fsm; opt; memory; opt
-techmap; opt
-write_verilog synth_tx.v

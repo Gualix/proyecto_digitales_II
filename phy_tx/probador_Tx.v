@@ -20,6 +20,7 @@ module probador_tx (
     output reg clk_2f,  //RELOJ 2F
 	output reg clk_f,    //RELOJ F
 	output reg clk_4f,   //RELOJ 4F
+	output reg clk_32f,   //RELOJ 4F
 	//////
     input out_serial_conductual, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
     
@@ -30,138 +31,58 @@ module probador_tx (
     );
     
     initial begin
+	
 	$dumpfile("PHYTX.vcd");
 	$dumpvars;
+
     active<=1;
-	{valid0,valid1,valid2,valid3, reset, out_serial2_conductual} <= 0;
+	
+	{valid0, valid1, valid2, valid3, reset, out_serial2_conductual} <= 0;
+	
 	{data_in0} <= 8'h00;
-    {data_in1} <= 8'hEE;
-    {data_in2} <= 8'hFF;
-    {data_in3} <= 8'hFD;
+    {data_in1} <= 8'h00;
+    {data_in2} <= 8'h00;
+    {data_in3} <= 8'h00;
     
 	@(posedge clk_f);
-	//active <= 1;
+	active <= 1;
 
 	valid0 <= 1;
 	valid1 <= 1;
 	valid2 <= 1;
 	valid3 <= 1;
-	data_in1 <= 8'hCC;
+	data_in0 <= 8'hCC;
 	data_in1 <= 8'hFD;
     data_in2 <= 8'hAA;
     data_in3 <= 8'h12;
     @(posedge clk_2f);
-    @(posedge clk_4f);
-    @(posedge clk_4f);
-    @(posedge clk_2f);
-
-
-
-	@(posedge clk_f);
-	//active <= 1;
-	valid0 <= 1;
-	valid1 <= 1;
-	valid2 <= 1;
-	valid3 <= 1;
-	data_in1 <= 8'hCC;
-	data_in1 <= 8'hF0;
-    data_in2 <= 8'hAA;
-    data_in3 <= 8'h11;
-   @(posedge clk_2f);
-    @(posedge clk_4f);
-    @(posedge clk_4f);
-    @(posedge clk_2f);
-	@(posedge clk_f);
-	reset <= 1;
-	//active <= 1;
-	valid0 <= 1;
-	valid1 <= 1;
-	valid2 <= 1;
-	valid3 <= 1;
-	data_in1 <= 8'hCA;
-	data_in1 <= 8'hF2;
-    data_in2 <= 8'hAA;
-    data_in3 <= 8'h12;
-
-   @(posedge clk_2f);
-    @(posedge clk_4f);
-    @(posedge clk_4f);
-    @(posedge clk_2f);
-
-	@(posedge clk_f);
-	//active <= 1;
-	valid0 <= 1;
-	valid1 <= 1;
-	valid2 <= 1;
-	valid3 <= 1;
-	data_in1 <= 8'hCA;
-	data_in1 <= 8'hF2;
-    data_in2 <= 8'hbA;
-    data_in3 <= 8'h12;
-
-   @(posedge clk_2f);
-    @(posedge clk_4f);
-    @(posedge clk_4f);
-    @(posedge clk_2f);
-
-
-	@(posedge clk_f);
-	//active <= 1;
 	valid0 <= 0;
-	valid1 <= 0;
-	valid2 <= 0;
-	valid3 <= 0;
-	data_in1 <= 8'hCA;
-	data_in1 <= 8'hF2;
-    data_in2 <= 8'hA1;
-    data_in3 <= 8'h12;
+	@(posedge clk_2f);
+	valid0 <= 1;
+	@(posedge clk_2f);
+	valid0 <= 0;
+	@(posedge clk_2f);
+	valid0 <= 1;
 
-   @(posedge clk_2f);
+
     @(posedge clk_4f);
     @(posedge clk_4f);
     @(posedge clk_2f);
-	@(posedge clk_f);
-	//active <= 1;
-	valid0 <= 0;
-	valid1 <= 0;
-	valid2 <= 0;
-	valid3 <= 0;
-	data_in1 <= 8'hCA;
-	data_in1 <= 8'hF2;
-    data_in2 <= 8'h11;
-    data_in3 <= 8'h12;
-    
-	@(posedge clk_f);
-	//active <= 0;
-	valid0 <= 1;
-	valid1 <= 1;
-	valid2 <= 1;
-	valid3 <= 1;
-	data_in1 <= 8'hCA;
-	data_in1 <= 8'hF2;
-    data_in2 <= 8'hAA;
-    data_in3 <= 8'h12;
 
-	@(posedge clk_f);
 
-	@(posedge clk_f);
-	
-	@(posedge clk_f);
-	
-	@(posedge clk_f);
-	
-	@(posedge clk_f);
 	$finish;
 	end
 	
 	initial clk_f <= 1;
 	initial clk_2f <= 1;
 	initial clk_4f <= 1;
+	initial clk_32f <= 1;
 	
 
 	always #24 clk_f <= ~clk_f;
 	always #16 clk_2f <= ~clk_2f;
 	always #8 clk_4f <= ~clk_4f;
+	always #1 clk_32f <= ~clk_32f;
 	
 	
 
