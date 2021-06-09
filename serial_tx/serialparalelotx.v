@@ -1,3 +1,6 @@
+
+
+
 module serialparalelotx(
 	//ENTRADAS
 			
@@ -33,7 +36,7 @@ module serialparalelotx(
 				contador_BC <= 0;
 			end
 			
-			else
+			else	//if reset == 1
 			begin
 				buffer <= {buffer[6:0], IDLin};	//en buffer se concatena al ultimo bit de posicion el dato se va llenando de esta manera 
 				

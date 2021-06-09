@@ -7,7 +7,8 @@ sed:
 	sed -i 's/serialparalelotx/sintetizatx/' sintetizatx.v
 	sed -i 's/data_serial_paraleloTX/data_serial_paraleloTX_sintetizado/' sintetizatx.v
 	sed -i 's/active_serial_paraleloTX/active_serial_paraleloTX_sintetizado/' sintetizatx.v
-	sed -i 's/IDLEOut/IDLEOut_sintetizado/' sintetizatx.v		
+	sed -i 's/IDLEOut/IDLEOut_sintetizado/' sintetizatx.v	
+		
 autoinst:    
 	emacs -batch bancotx.v -f verilog-auto -f save-buffer
 

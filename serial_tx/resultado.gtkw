@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun  9 23:09:29 2021
+[*]
+[dumpfile] "/home/gualix/git/proyecto_digitales_II/serial_tx/serial_paraleloTX.vcd"
+[dumpfile_mtime] "Sat Jun  5 22:29:26 2021"
+[dumpfile_size] 151817
+[savefile] "/home/gualix/git/proyecto_digitales_II/serial_tx/resultado.gtkw"
+[timestart] 0
+[size] 1920 1043
+[pos] -39 -39
+*-33.915501 23970000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 269
+[sst_expanded] 1
+[sst_vpaned_height] 298
+@28
+banco_serial_paralelo.IDLEOut
+banco_serial_paralelo.IDLin
+banco_serial_paralelo.clk_4f
+banco_serial_paralelo.clk_32f
+banco_serial_paralelo.reset
+banco_serial_paralelo.IDLEOut
+@22
+banco_serial_paralelo.data_serial_paraleloTX[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
