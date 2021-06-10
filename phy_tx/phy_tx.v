@@ -13,9 +13,9 @@ Descripcion:
 
 
 `include "recirculador.v"
-`include "muxes/Muxes.v"
+`include "Muxes.v"
 `include "paralelo_serial.v"
-`include "serialparalelotx.v"
+`include "serial_paralelo.v"
 
 module phy_tx (
     input [7:0] data_in0,   //DATOS DE ENTRADA
@@ -158,5 +158,6 @@ serial_paralelo s2p(
     .data_serial_paraleloTX     (data_serial_paraleloRX [7:0]),
     .active_serial_paraleloTX   (active),
     .IDLEOut                    (IDLEOut)
+    
 );
 endmodule

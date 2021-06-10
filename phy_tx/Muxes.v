@@ -1,5 +1,5 @@
-`include "muxL2.v"
-`include "muxL1.v"
+`include "./muxL2.v"
+`include "./muxL1.v"
 module Muxes(
                         //salida del L2
                         output  [7:0] Salida_conductual,

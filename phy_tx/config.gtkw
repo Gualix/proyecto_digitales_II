@@ -1,20 +1,21 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Wed Jun  9 23:31:55 2021
+[*] Thu Jun 10 00:20:51 2021
 [*]
 [dumpfile] "/home/gualix/git/proyecto_digitales_II/phy_tx/PHY_TX.vcd"
-[dumpfile_mtime] "Wed Jun  9 23:27:57 2021"
-[dumpfile_size] 24623
+[dumpfile_mtime] "Thu Jun 10 00:17:34 2021"
+[dumpfile_size] 19018
 [savefile] "/home/gualix/git/proyecto_digitales_II/phy_tx/config.gtkw"
 [timestart] 0
 [size] 1920 1043
-[pos] -1 -1
-*-36.624920 332200000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] 943 174
+*-35.435009 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] BancoPruebas.
+[treeopen] BancoPruebas.transmisior.
 [sst_width] 233
-[signals_width] 183
+[signals_width] 282
 [sst_expanded] 1
-[sst_vpaned_height] 410
+[sst_vpaned_height] 202
 @28
 BancoPruebas.clk_f
 BancoPruebas.clk_2f
@@ -31,7 +32,12 @@ BancoPruebas.validIn_1
 BancoPruebas.validIn_2
 BancoPruebas.validIn_3
 BancoPruebas.reset
-BancoPruebas.data_sp
 BancoPruebas.data_out
+BancoPruebas.data_sp
+@22
+BancoPruebas.transmisior.muxess.Entrada0[7:0]
+BancoPruebas.transmisior.muxess.Entrada1[7:0]
+BancoPruebas.transmisior.muxess.Entrada2[7:0]
+BancoPruebas.transmisior.muxess.Entrada3[7:0]
 [pattern_trace] 1
 [pattern_trace] 0
