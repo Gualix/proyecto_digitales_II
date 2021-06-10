@@ -33,10 +33,10 @@ module phy_tx (
     //input out_serial2_conductual, //entrada IDLIN de serial a conductual 
     input in_from_rx,             //entrada IDLIN de serial a conductual 
 
-    input clk_2f,  //RELOJ 2F
-    input clk_32f,  //RELOJ 2F
-	input clk_f,    //RELOJ F
-	input clk_4f,   //RELOJ 4F
+	input clk_f,    //Reloj f
+    input clk_2f,   //Reloj 2f
+	input clk_4f,   //Reloj 4xf
+    input clk_32f,  //Reloj 32xf
 
     //output out_serial_conductual, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
     output out_to_rx, //SALIDA DEL PARALELO-SERIAL A EL MODULO RX
@@ -158,6 +158,6 @@ serial_paralelo s2p(
     .data_serial_paraleloTX     (data_serial_paraleloRX [7:0]),
     .active_serial_paraleloTX   (active),
     .IDLEOut                    (IDLEOut)
-    
+
 );
 endmodule

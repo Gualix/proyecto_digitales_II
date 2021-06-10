@@ -22,7 +22,7 @@ module probador_tx (
 	output reg clk_f,    	//Reloj f
     output reg clk_2f,  	//Reloj 2xf
 	output reg clk_4f,   	//Reloj 4xf
-	output reg clk_32f,   	//Reloj 4xf
+	output reg clk_32f,   	//Reloj 32xf
 	
 	//Salida del Tx (No se usa)
     input out_to_rx, 	//Salida de datos del transmisor
