@@ -141,7 +141,7 @@ paralelo_serial p2s(
 			.reset			(reset),
 			
 			//SALIDAS
-			.out_serial_conductual (out_serial_conductual)
+			.out_serial_conductual (out_to_rx)
 			
 );
 
@@ -152,7 +152,7 @@ serial_paralelo s2p(
     .reset		(reset),
     .clk_32f	(clk_32f),
     .clk_4f    	(clk_4f),
-    .IDLin      (out_serial2_conductual),
+    .IDLin      (in_from_rx),
 
     //SALIDAS
     .data_serial_paraleloTX     (data_serial_paraleloRX [7:0]),

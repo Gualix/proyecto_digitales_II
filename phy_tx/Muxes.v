@@ -40,10 +40,10 @@ module Muxes(
 			.validEntrada2	(validEntrada2),
 			.validEntrada3	(validEntrada3),
 			
-			.Entrada0		(Entrada2[7:0]), 
-			.Entrada1		(Entrada3[7:0]), 
-			.Entrada2		(Entrada0[7:0]), 
-			.Entrada3		(Entrada1[7:0]), 
+			.Entrada0		(Entrada0[7:0]), 
+			.Entrada1		(Entrada1[7:0]), 
+			.Entrada2		(Entrada2[7:0]), 
+			.Entrada3		(Entrada3[7:0]), 
 			
 			//SALIDAS
 			.validsalida0	(validsalida0),
@@ -67,7 +67,7 @@ module Muxes(
 			.reset 				(reset),
 			
 			.Salida_conductual	(Salida_conductual [7:0]),
-			.validsalida		(validsalida0)
+			.validsalida		(validsalida)
 		
 			);
 			

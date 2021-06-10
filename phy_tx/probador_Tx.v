@@ -39,14 +39,14 @@ module probador_tx (
 	$dumpvars;
 
     //active<=1;
-	{valid0, valid1, valid2, valid3, reset, in_from_rx} <= 0;
+	{valid0, valid1, valid2, valid3, reset,in_from_rx} <= 0;
 	{data_in0} <= 8'h00;
     {data_in1} <= 8'hEE;
     {data_in2} <= 8'hFF;
     {data_in3} <= 8'hFD;
     
 	@(posedge clk_f);
-
+	
 	reset <= 1;
 	valid0 <= 1;
 	valid1 <= 1;
@@ -56,6 +56,22 @@ module probador_tx (
 	data_in1 <= 8'hFD;
     data_in2 <= 8'hCA;
     data_in3 <= 8'h12;
+	@(posedge clk_32f);
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
 
 	@(posedge clk_2f);
 
@@ -67,6 +83,41 @@ module probador_tx (
 	data_in1 <= 8'hF0;
     data_in2 <= 8'hAA;
     data_in3 <= 8'h11;
+	@(posedge clk_32f);
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	
+	@(posedge clk_4f);
+
+	@(posedge clk_32f);
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=0;
 
 	@(posedge clk_2f);
 
@@ -78,6 +129,39 @@ module probador_tx (
 	data_in1 <= 8'hF1;
     data_in2 <= 8'hCA;
     data_in3 <= 8'h05;
+	@(posedge clk_32f);
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=0;
 
 /*
 
@@ -182,7 +266,75 @@ module probador_tx (
 	in_from_rx<=0;
 
 	*/
+	@(posedge clk_f);
+	{data_in0} <= 8'h10;
+    {data_in1} <= 8'h2E;
+    {data_in2} <= 8'h3F;
+    {data_in3} <= 8'hF5;
+	@(posedge clk_32f);
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=0;
 
+	@(posedge clk_f);
+	{data_in0} <= 8'h02;
+    {data_in1} <= 8'h4C;
+    {data_in2} <= 8'h89;
+    {data_in3} <= 8'h10;
+	@(posedge clk_32f);
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_f);
+	{data_in0} <= 8'h85;
+    {data_in1} <= 8'hBC;
+    {data_in2} <= 8'hDF;
+    {data_in3} <= 8'hEF;
+	@(posedge clk_32f);
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=1;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_32f)
+	in_from_rx<=0;
+	@(posedge clk_f);
+	{data_in0} <= 8'h92;
+    {data_in1} <= 8'hF1;
+    {data_in2} <= 8'h05;
+    {data_in3} <= 8'h56;
 		@(posedge clk_4f);
 	
 	in_from_rx<=1;
@@ -413,7 +565,7 @@ module probador_tx (
 	initial clk_32f <= 1;
 	
 
-	always #24 clk_f <= ~clk_f;
+	always #32 clk_f <= ~clk_f;
 	always #16 clk_2f <= ~clk_2f;
 	always #8 clk_4f <= ~clk_4f;
 	always #1 clk_32f <= ~clk_32f;

@@ -46,7 +46,7 @@ reg selector;
                 end    
                 else begin
                 Salida_conductual<=0; //Condicion dada en el enunciado, si el reset es cero el flop toma valor de 00
-                selector<=0;
+                #2 selector<=0;
                 end
             end
 endmodule
