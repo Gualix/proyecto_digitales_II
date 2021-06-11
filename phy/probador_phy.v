@@ -21,7 +21,7 @@ module probador_phy(
 	
 	//output cond
 	
-	input [7:0] out0_tx,    //Salida del recirculador 0 
+    input [7:0] out0_tx,    //Salida del recirculador 0 
     input [7:0] out1_tx,    //Salida del recirculador 1 
     input [7:0] out2_tx,    //Salida del recirculador 2 
     input [7:0] out3_tx,    //Salida del recirculador 3 
@@ -44,423 +44,139 @@ module probador_phy(
 	$dumpfile("phy.vcd");
 	$dumpvars;
 	
-	//active<=1;
-	{valid0, valid1, valid2, valid3, reset,in_from_rx} <= 0;
-	{data_in0} <= 8'h00;
-    {data_in1} <= 8'hEE;
-    {data_in2} <= 8'hFF;
-    {data_in3} <= 8'hFD;
+	{valid_in0_tx, valid_in1_tx, valid_in2_tx, valid_in3_tx} <= 0;
+	{in0_tx} <= 8'h00;
+    	{in1_tx} <= 8'hEE;
+    	{in2_tx} <= 8'hFF;
+    	{in3_tx} <= 8'hFD;
     
-	@(posedge clk_f);
-	
-	reset <= 1;
-	valid0 <= 1;
-	valid1 <= 1;
-	valid2 <= 1;
-	valid3 <= 1;
-	data_in0 <= 8'hFC;
-	data_in1 <= 8'hFD;
-    data_in2 <= 8'hCA;
-    data_in3 <= 8'h12;
-	@(posedge clk_32f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
+			repeat (1) begin
+		
+		@(posedge clk_f);
+		reset<=1;
+		end
+		
+	@(posedge clk_f)
+		reset <= 1;
+		in0_tx <= 8'b00000000;
+		in1_tx <= 8'b00001110;
+		in2_tx <= 8'b00001110;
+		in3_tx <= 8'b01001110;
+		
+		valid_in0_tx <= 1;
+		valid_in1_tx <= 1;
+		valid_in2_tx <= 1;
+		valid_in3_tx <= 1;
+		
+		@(posedge clk_f)
+		reset <= 1;
 
-	@(posedge clk_2f);
+		in0_tx <= 8'b11000000;
+		in1_tx <= 8'b10001110;
+		in2_tx <= 8'b10001110;
+		in3_tx <= 8'b00001010;
+		
+		valid_in0_tx <= 1;
+		valid_in1_tx <= 1;
+		valid_in2_tx <= 1;
+		valid_in3_tx <= 1;
+		
+		@(posedge clk_f)
+		reset <= 0;
 
-	valid0 <= 0;
-	valid1 <= 0;
-	valid2 <= 0;
-	valid3 <= 0;
-	data_in0 <= 8'hCC;
-	data_in1 <= 8'hF0;
-    data_in2 <= 8'hAA;
-    data_in3 <= 8'h11;
-	@(posedge clk_32f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	
-	@(posedge clk_4f);
+		in0_tx <= 8'b11000000;
+		in1_tx <= 8'b10001110;
+		in2_tx <= 8'b10001110;
+		in3_tx <= 8'b00001010;
+		
+		valid_in0_tx <= 0;
+		valid_in1_tx <= 0;
+		valid_in2_tx <= 0;
+		valid_in3_tx <= 0;
+		
+		@(posedge clk_f)
+		reset <= 0;
 
-	@(posedge clk_32f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
+		in0_tx <= 8'b11000000;
+		in1_tx <= 8'b10001110;
+		in2_tx <= 8'b10001110;
+		in3_tx <= 8'b00001010;
+		
+		valid_in0_tx <= 1;
+		valid_in1_tx <= 1;
+		valid_in2_tx <= 1;
+		valid_in3_tx <= 1;
+		
+		
+		@(posedge clk_f)
+		reset <= 0;
 
-	@(posedge clk_2f);
+		in0_tx <= 8'b11000100;
+		in1_tx <= 8'b10011110;
+		in2_tx <= 8'b10001110;
+		in3_tx <= 8'b00001010;
+		
+		valid_in0_tx <= 0;
+		valid_in1_tx <= 0;
+		valid_in2_tx <= 0;
+		valid_in3_tx <= 0;
+		
+		@(posedge clk_f)
+		reset <= 1;
+		in0_tx <= 8'b00000000;
+		in1_tx <= 8'b00001110;
+		in2_tx <= 8'b00001110;
+		in3_tx <= 8'b01001110;
+		
+		valid_in0_tx <= 1;
+		valid_in1_tx <= 1;
+		valid_in2_tx <= 1;
+		valid_in3_tx <= 1;
+		
+		@(posedge clk_f)
+		reset <= 1;
 
-	valid0 <= 1;
-	valid1 <= 1;
-	valid2 <= 1;
-	valid3 <= 1;
-	data_in0 <= 8'hCA;
-	data_in1 <= 8'hF1;
-    data_in2 <= 8'hCA;
-    data_in3 <= 8'h05;
-	@(posedge clk_32f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
+		in0_tx <= 8'b11000000;
+		in1_tx <= 8'b10001110;
+		in2_tx <= 8'b10001110;
+		in3_tx <= 8'b00001010;
+		
+		valid_in0_tx <= 0;
+		valid_in1_tx <= 0;
+		valid_in2_tx <= 0;
+		valid_in3_tx <= 0;
+		
+		@(posedge clk_f)
+		reset <= 0;
 
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
+		in0_tx <= 8'b11000000;
+		in1_tx <= 8'b10001110;
+		in2_tx <= 8'b10001110;
+		in3_tx <= 8'b00001010;
+		
+		valid_in0_tx <= 1;
+		valid_in1_tx <= 1;
+		valid_in2_tx <= 1;
+		valid_in3_tx <= 1;
+		
+		@(posedge clk_f)
+		reset <= 0;
 
-	@(posedge clk_f);
-	{data_in0} <= 8'h10;
-    {data_in1} <= 8'h2E;
-    {data_in2} <= 8'h3F;
-    {data_in3} <= 8'hF5;
-	@(posedge clk_32f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_f);
-	{data_in0} <= 8'h02;
-    {data_in1} <= 8'h4C;
-    {data_in2} <= 8'h89;
-    {data_in3} <= 8'h10;
-	@(posedge clk_32f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_f);
-	{data_in0} <= 8'h85;
-    {data_in1} <= 8'hBC;
-    {data_in2} <= 8'hDF;
-    {data_in3} <= 8'hEF;
-	@(posedge clk_32f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_f);
-	{data_in0} <= 8'h92;
-    {data_in1} <= 8'hF1;
-    {data_in2} <= 8'h05;
-    {data_in3} <= 8'h56;
-		@(posedge clk_4f);
-	
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	
-	@(posedge clk_4f);
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-
-	@(posedge clk_4f);
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=0;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-	@(posedge clk_32f)
-	in_from_rx<=1;
-
-	@(posedge clk_4f);
-	in_from_rx<=1;
-
+		in0_tx <= 8'b11000000;
+		in1_tx <= 8'b10001110;
+		in2_tx <= 8'b10001110;
+		in3_tx <= 8'b00001010;
+		
+		valid_in0_tx <= 1;
+		valid_in1_tx <= 1;
+		valid_in2_tx <= 1;
+		valid_in3_tx <= 1;
 	
 	@(posedge clk_f);
-	
-	@(posedge clk_f);
-
-
 	@(posedge clk_f);
 	@(posedge clk_f);
 	@(posedge clk_f);
 	@(posedge clk_f);
-	@(posedge clk_f);
-
 
 	$finish;
 	end
