@@ -9,7 +9,7 @@ module PSRX(input clk_4f,
     always @(posedge clk_32f) begin
 
       
-            if(active == 1) begin
+            if(active == 0) begin
                 selector <= 0;
                 case (selector_2)
                     0: out_serial2_conductual <= 0;

@@ -3,7 +3,7 @@
                  Escuela de Ingenieria Electrica
                             IE-0325
                       Circuitos Digitales 2
-
+ls
                             phy.v
 
 Descripcion:
@@ -97,11 +97,11 @@ phy_tx transmisor(
 
 );
 
-phy_rx receptor(
+Rx receptor(
 	/*AUTOINST*/
 	
     // Se interconectan los clocks
-    //.clk_f(clk_f),        // No se usa en el receptor
+    .clk_f(clk_f),        // No se usa en el receptor
     .clk_2f(clk_2f),
     .clk_4f(clk_4f),
     .clk_32f(clk_32f),

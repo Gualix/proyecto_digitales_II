@@ -1,48 +1,67 @@
+
 module demuxL1(
-                input clk_4f,
-				input clk_2f,
-				input [7:0] data_serial_paralelo,
-				input valid_serial_paralelo,
-				input reset,
-				output reg [15:0] datademuxl1,
-				output reg valid_datademuxl10,
-				output reg valid_datademuxl11); //tiene que ser reg para poder ser l-value
+    
+    //salida buses de 8 bits 2
+    output [7:0]Salida0,
+    output [7:0]Salida1,
+    output [7:0]Salida2,
+    output [7:0]Salida3,
+    //salida valids
+    output validsalida0,
+    output validsalida1,
+    output validsalida2,
+    output validsalida3,   
+    //buses de entrada, 4 de 8 bits
+    input [7:0] Entrada0,
+    input [7:0] Entrada1,
+    
+    //valids de entrada 4
+    input validEntrada0,
+    input validEntrada1,
+    
+    //reloj
+    input clk_f,
+    input reset);
 
-	reg [15:0] buffer;
-	integer contador;
-
-
-	always @(posedge clk_4f) 
-    begin
-		if(reset == 0) begin
-			contador <= 0;
-			valid_datademuxl10 <= 0;
-			valid_datademuxl11 <= 0;
-			datademuxl1 <= 0;
-			buffer <= 0;
-		end
-		else begin
-			if(valid_serial_paralelo == 1) begin
-				buffer = {buffer[15:0], data_serial_paralelo};
-				if (contador <= 3) begin
-					datademuxl1 <= buffer;
-					valid_datademuxl10 <= 1;
-					valid_datademuxl11 <= 1;
-				end
-				contador <= contador + 1;
-
-				if(contador == 3) contador <= 0;
-			end
-			else begin			//Caso valid_serial_paralelo 0
-				if (contador == 4) begin
-					valid_datademuxl10 <= 0;
-					valid_datademuxl11 <= 0;
-					contador <= 0;
-				end
-				contador= contador+1;
-			end
-		end
-	end
-
-
+    demux1x2 demuxL11(
+  //salida 8 bits
+    .Salida_conductual0(Salida0[7:0]),
+    .Salida_conductual1(Salida1[7:0]),
+    
+    //salida valid
+    .validsalida0(validsalida0),
+    .validsalida1(validsalida1),
+    
+    //entradas
+    //2 buses de bits de entrada 8 cada uno
+    .Entrada(Entrada0[7:0]),
+    
+    //2 valids entrada
+    .validEntrada(validEntrada0),
+    
+    //clk
+    .clk(clk_f),
+    .reset(reset)
+    );
+    
+    demux1x2 demuxL12(
+  //salida 8 bits
+    .Salida_conductual0(Salida2[7:0]),
+    .Salida_conductual1(Salida3[7:0]),
+    
+    //salida valid
+    .validsalida0(validsalida2),
+    .validsalida1(validsalida3),
+    
+    //entradas
+    //2 buses de bits de entrada 8 cada uno
+    .Entrada(Entrada1[7:0]),
+    
+    //2 valids entrada
+    .validEntrada(validEntrada1),
+    
+    //clk
+    .clk(clk_f),
+    .reset(reset)
+    );
 endmodule
