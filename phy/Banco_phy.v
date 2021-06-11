@@ -68,7 +68,7 @@ phy phy_general(/*AUTOINST*/
     .valid_out0_rx(validOut_0), // Conexión de los valids de salidas del receptor
     .valid_out1_rx(validOut_1),
     .valid_out2_rx(validOut_2),
-    .valid_out3_rx(validOut_3),
+    .valid_out3_rx(validOut_3)
 
 );
 
@@ -107,7 +107,7 @@ probador_tx Probador(/*AUTOINST*/
     .valid_out0_rx(validOut_0), // Conexión de los valids de salidas del receptor
     .valid_out1_rx(validOut_1),
     .valid_out2_rx(validOut_2),
-    .valid_out3_rx(validOut_3),
+    .valid_out3_rx(validOut_3)
 
 );
 
