@@ -1,0 +1,146 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Sun Jun 13 00:09:35 2021
+[*]
+[dumpfile] "C:\Users\RÛger\Desktop\Digitales 2\Proyecto\Phy\phy\PHY.vcd"
+[dumpfile_mtime] "Sat Jun 12 21:23:15 2021"
+[dumpfile_size] 65546
+[savefile] "C:\Users\RÛger\Desktop\Digitales 2\Proyecto\Phy\phy\PHY.gtkw"
+[timestart] 0
+[size] 1640 636
+[pos] -81 -20
+*-37.602608 448000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[treeopen] BancoPruebas.phy_general.
+[treeopen] BancoPruebas.phy_general.receptor.
+[treeopen] BancoPruebas.phy_general.receptor.demuxes.
+[treeopen] BancoPruebas.phy_general.receptor.demuxes.demuxitoL2.
+[treeopen] BancoPruebas.phy_general.transmisor.
+[treeopen] BancoPruebas.phy_general.transmisor.muxess.
+[sst_width] 197
+[signals_width] 471
+[sst_expanded] 1
+[sst_vpaned_height] 166
+@200
+-Transmisor
+-Entradas del transmisor:
+@28
+BancoPruebas.phy_general.clk_f
+@22
+[color] 2
+BancoPruebas.In_0[7:0]
+[color] 2
+BancoPruebas.In_1[7:0]
+[color] 2
+BancoPruebas.In_2[7:0]
+[color] 2
+BancoPruebas.In_3[7:0]
+@200
+-Serial del paralelo a serial Tx
+@28
+[color] 1
+BancoPruebas.phy_general.transmisor.p2s.out_serial_conductual
+@200
+-Entrada del serial a paralelo del Transmisor
+@28
+[color] 3
+BancoPruebas.phy_general.transmisor.s2p.IDLin
+@200
+-Contador del serial a paralelo y la salida IDLE out
+@420
+BancoPruebas.phy_general.transmisor.s2p.contador_BC
+@28
+BancoPruebas.phy_general.transmisor.s2p.IDLEOut
+@200
+-Active dado por el recirculador
+@28
+BancoPruebas.phy_general.transmisor.s2p.active_serial_paraleloTX
+@200
+-Salida del mux L1
+@28
+BancoPruebas.phy_general.clk_2f
+@22
+[color] 7
+BancoPruebas.phy_general.transmisor.muxess.muxl1.Salida0[7:0]
+[color] 7
+BancoPruebas.phy_general.transmisor.muxess.muxl1.Salida1[7:0]
+@200
+-Salida del mux L2
+@22
+[color] 5
+BancoPruebas.phy_general.transmisor.muxess.muxitol2.Salida_conductual[7:0]
+@28
+BancoPruebas.phy_general.clk_4f
+@200
+-Receptor
+-Entrada recibida al receptor
+@28
+BancoPruebas.phy_general.receptor.clk_32f
+BancoPruebas.phy_general.receptor.data_in
+@420
+BancoPruebas.phy_general.receptor.serialparalelo.contador_BC
+@28
+[color] 1
+BancoPruebas.phy_general.receptor.serialparalelo.valid_serial_paraleloRX
+@200
+-Active dado por el serial a paralelo Rx
+@28
+[color] 1
+BancoPruebas.phy_general.receptor.serialparalelo.active_serial_paraleloRX
+@200
+-Salida hacia los demuxes:
+@22
+[color] 3
+BancoPruebas.phy_general.receptor.serialparalelo.data_serial_paraleloRX[7:0]
+@200
+-Salida del demux L2
+@22
+[color] 7
+BancoPruebas.phy_general.receptor.demuxes.demuxitoL2.Salida_conductual0[7:0]
+[color] 7
+BancoPruebas.phy_general.receptor.demuxes.demuxitoL2.Salida_conductual1[7:0]
+@200
+-Salida del demux L1
+@28
+BancoPruebas.phy_general.receptor.clk_2f
+@22
+[color] 2
+BancoPruebas.phy_general.receptor.demuxes.Salida0[7:0]
+[color] 2
+BancoPruebas.phy_general.receptor.demuxes.Salida1[7:0]
+[color] 2
+BancoPruebas.phy_general.receptor.demuxes.Salida2[7:0]
+[color] 2
+BancoPruebas.phy_general.receptor.demuxes.Salida3[7:0]
+@200
+-Paralelo a serial del recibidor:
+-Active de entrada:
+@28
+[color] 1
+BancoPruebas.phy_general.receptor.Paralelo.active
+@200
+-Salida:
+@28
+BancoPruebas.phy_general.receptor.Paralelo.out_serial2_conductual
+@200
+-Comparaci√≥n entre Entradas y salidas:
+-Entradas
+@22
+BancoPruebas.phy_general.in0_tx[7:0]
+BancoPruebas.phy_general.in1_tx[7:0]
+BancoPruebas.phy_general.in2_tx[7:0]
+BancoPruebas.phy_general.in3_tx[7:0]
+@200
+-Salidas
+@22
+[color] 3
+BancoPruebas.phy_general.out0_rx[7:0]
+[color] 3
+BancoPruebas.phy_general.out1_rx[7:0]
+[color] 3
+BancoPruebas.phy_general.out2_rx[7:0]
+@23
+[color] 3
+BancoPruebas.phy_general.out3_rx[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
