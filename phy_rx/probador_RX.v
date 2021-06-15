@@ -6,6 +6,7 @@ module probador_serial_paraleloRX (
 			output reg clk_32f,			//clock frecuencia 32
 			output reg clk_4f,			//clock frecuencia 4
 			output reg clk_2f,
+			output reg clk_f,
 	
 			//Salidas
             input out_serial2_conductual,//salida de paralelo serial rx
@@ -54,7 +55,7 @@ module probador_serial_paraleloRX (
 
 
 	@(posedge clk_4f);
-	data_in<=1;
+	data_in<=0;
 	@(posedge clk_32f)
 	data_in<=0;
 	@(posedge clk_32f)
@@ -88,19 +89,19 @@ module probador_serial_paraleloRX (
 	@(posedge clk_32f)
 	data_in<=0;
 	@(posedge clk_32f)
-	data_in<=0;
+	data_in<=1;
 
 	@(posedge clk_4f);
 	data_in<=1;
 	reset <=1;
 	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
 	data_in<=0;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=1;
 	@(posedge clk_32f)
 	data_in<=1;
 	@(posedge clk_32f)
@@ -274,7 +275,7 @@ module probador_serial_paraleloRX (
 	@(posedge clk_4f);
 	data_in<=1;
 	@(posedge clk_32f)
-	data_in<=0;
+	data_in<=1;
 	@(posedge clk_32f)
 	data_in<=1;
 	@(posedge clk_32f)
@@ -288,23 +289,6 @@ module probador_serial_paraleloRX (
 	@(posedge clk_32f)
 	data_in<=0;
 
-
-	@(posedge clk_4f);
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=0;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=0;
-	@(posedge clk_32f)
-	data_in<=0;
-	@(posedge clk_32f)
-	data_in<=1;
-	@(posedge clk_32f)
-	data_in<=0;
-	@(posedge clk_32f)
-	data_in<=0;
 
 	@(posedge clk_4f);
 	data_in<=0;
@@ -313,6 +297,23 @@ module probador_serial_paraleloRX (
 	@(posedge clk_32f)
 	data_in<=1;
 	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+
+	@(posedge clk_4f);
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
 	data_in<=1;
 	@(posedge clk_32f)
 	data_in<=1;
@@ -339,6 +340,113 @@ module probador_serial_paraleloRX (
 	data_in<=1;
 	@(posedge clk_32f)
 	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+
+
+	@(posedge clk_4f);
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_4f);
+	reset <=1;
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+
+	@(posedge clk_4f);
+	data_in<=1;
+	reset <=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=0;
+
+
+	@(posedge clk_2f);
+
+	@(posedge clk_4f);
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=0;
+
+	@(posedge clk_4f);
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=0;
+
+	@(posedge clk_4f);
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=1;
+	@(posedge clk_32f)
+	data_in<=0;
 	@(posedge clk_32f)
 	data_in<=0;
 
@@ -348,6 +456,9 @@ module probador_serial_paraleloRX (
 			
 	$finish;
 	end
+	initial clk_f <= 0;
+	always #32 clk_f <= ~clk_f;
+
 	initial clk_2f <= 0;
 	always #16 clk_2f <= ~clk_2f;
 

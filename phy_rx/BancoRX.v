@@ -1,5 +1,5 @@
 `timescale 1ms/100ps
-`include "Rx.v"
+`include "phy_rx.v"
 `include "probador_RX.v"
 
 module BancoPruebas;
@@ -21,6 +21,7 @@ module BancoPruebas;
             .clk_32f(clk_32f),
             .clk_4f(clk_4f),
             .clk_2f(clk_2f),
+            .clk_f(clk_f),
             .data_serial_paraleloRX(data_serial_paraleloRX[7:0]),
             .reset(reset),
             .out0(Salida0[7:0]),
@@ -41,6 +42,7 @@ module BancoPruebas;
 			.clk_32f(clk_32f),			//clock frecuencia 32
 			.clk_4f(clk_4f),
             .clk_2f(clk_2f),
+            .clk_f(clk_f),
             .validSalida0(validSalida0),
             .validSalida1(validSalida1),
             .validSalida2(validSalida2),

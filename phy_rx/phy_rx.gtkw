@@ -1,0 +1,62 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sat Jun 12 21:46:45 2021
+[*]
+[dumpfile] "/home/roger/Desktop/Codigos/phy/RX.vcd"
+[dumpfile_mtime] "Sat Jun 12 21:37:52 2021"
+[dumpfile_size] 24520
+[savefile] "/home/roger/Desktop/Codigos/phy/phy_rx.gtkw"
+[timestart] 189900000000
+[size] 968 529
+[pos] -1 11
+*-36.964649 272000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[treeopen] BancoPruebas.RX.
+[treeopen] BancoPruebas.RX.demuxes.
+[treeopen] BancoPruebas.RX.demuxes.demuxitl1.
+[treeopen] BancoPruebas.RX.demuxes.demuxitoL2.
+[sst_width] 233
+[signals_width] 246
+[sst_expanded] 1
+[sst_vpaned_height] 162
+@28
+BancoPruebas.data_in
+@22
+[color] 1
+BancoPruebas.RX.demuxes.demuxitoL2.Entrada[7:0]
+@201
+-Entrada del demux L2
+@22
+[color] 5
+BancoPruebas.RX.demuxes.demuxitoL2.Salida_conductual0[7:0]
+[color] 5
+BancoPruebas.RX.demuxes.demuxitoL2.Salida_conductual1[7:0]
+@200
+-Salida del demuxL2
+@28
+[color] 1
+BancoPruebas.RX.demuxes.demuxitl1.demuxL12.selector
+@22
+BancoPruebas.RX.demuxes.demuxitl1.Entrada0[7:0]
+BancoPruebas.RX.demuxes.demuxitl1.Entrada1[7:0]
+[color] 3
+BancoPruebas.RX.demuxes.demuxitl1.Salida0[7:0]
+[color] 3
+BancoPruebas.RX.demuxes.demuxitl1.Salida1[7:0]
+[color] 3
+BancoPruebas.RX.demuxes.demuxitl1.Salida2[7:0]
+[color] 3
+BancoPruebas.RX.demuxes.demuxitl1.Salida3[7:0]
+@200
+-Salida del demux L1
+@28
+[color] 1
+BancoPruebas.RX.demuxes.demuxitoL2.demux1.selector
+[color] 7
+BancoPruebas.RX.Paralelo.out_serial2_conductual
+BancoPruebas.clk_f
+BancoPruebas.RX.demuxes.demuxitoL2.clk_2f
+BancoPruebas.clk_4f
+BancoPruebas.clk_32f
+[pattern_trace] 1
+[pattern_trace] 0

@@ -3,7 +3,7 @@
 `include "PSRX.v"
 
 
-module phy_rx(  input data_in,
+module Rx(  input data_in,
             input clk_32f,
             input clk_4f,
             input clk_2f,
